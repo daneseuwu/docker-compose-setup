@@ -1,0 +1,22 @@
+services:
+  mongodb:
+    image: mongo:latest                         # Usar la última imagen de MongoDB
+    container_name: mongodb-container            # Nombre del contenedor
+    restart: always                              # Reiniciar siempre el contenedor
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}  # Usuario administrador
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}  # Contraseña del administrador
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+    ports:
+      - "27017:27017"                            # Exponer el puerto 27017
+    volumes:
+      - mongo-data:/data/db                     # Volumen para persistir datos
+    networks:
+      - mongodb-network                          # Conectar a una red personalizada
+
+volumes:
+  mongo-data:                                   # Definir volumen para datos de MongoDB
+
+networks:
+  mongodb-network:                              # Red de tipo bridge
+    driver: bridge

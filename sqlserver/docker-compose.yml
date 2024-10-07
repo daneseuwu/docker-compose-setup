@@ -1,0 +1,23 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver-container
+    restart: always
+    environment:
+      ACCEPT_EULA: "Y"                        # Acepta el acuerdo de licencia
+      MSSQL_PID: "Developer"                  # Tipo de licencia (Developer, Express, etc.)
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD} # Contraseña del usuario SA
+      MSSQL_DATABASE: ${MSSQL_DATABASE}        # Nombre de la base de datos que se creará
+    ports:
+      - "1433:1433"                            # Puerto de SQL Server
+    volumes:
+      - sqlserver-data:/var/opt/mssql          # Volumen para persistir datos
+    networks:
+      - sqlserver-network
+
+volumes:
+  sqlserver-data:                             # Volumen para datos de SQL Server
+
+networks:
+  sqlserver-network:
+    driver: bridge                             # Red de tipo bridge
