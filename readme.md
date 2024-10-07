@@ -1,6 +1,6 @@
-# Docker container docker-compose.yml
+# Docker Container with Docker Compose
 
-Descripción breve del proyecto.
+Este proyecto utiliza **Docker** y **Docker Compose** para facilitar la creación, gestión y despliegue de contenedores de aplicaciones. Este documento te guiará a través del proceso de instalación y uso.
 
 ## Tabla de Contenidos
 
@@ -14,7 +14,7 @@ Descripción breve del proyecto.
 
 ## Descripción
 
-Este proyecto utiliza **Docker** y **Docker Compose** para facilitar la creación, gestión y despliegue de contenedores. Este README te guiará en el proceso de implementación.
+El propósito de este proyecto es proporcionar una configuración básica para levantar un contenedor utilizando **Docker** y **Docker Compose**. Esto permite a los desarrolladores simplificar el proceso de configuración y despliegue de entornos de desarrollo y producción.
 
 ## Tecnologías Utilizadas
 
@@ -23,25 +23,27 @@ Este proyecto utiliza **Docker** y **Docker Compose** para facilitar la creació
 
 ## Prerrequisitos
 
+Antes de comenzar, asegúrate de tener instalados los siguientes componentes en tu máquina:
+
 1. **Docker**: Asegúrate de tener Docker instalado en tu máquina. Puedes descargarlo desde [aquí](https://www.docker.com/get-started).
-2. **Docker Compose**: Generalmente, Docker Compose se incluye con la instalación de Docker Desktop. Verifica su instalación ejecutando:
+2. **Docker Compose**: Generalmente, Docker Compose se incluye con la instalación de Docker Desktop. Verifica su instalación ejecutando el siguiente comando en tu terminal:
 
    ```bash
    docker-compose --version
    ```
+   ## Instalación
 
-**Instalacion**
+  **1. Clona el repositorio**
 
-
-1.**Clona el repositorio:**
-
-   ```bash
+  ```bash
 git clone https://github.com/tuusuario/tu-repositorio.git
 cd tu-repositorio
-````
+  ```
 
-2.**Crea el archivo docker-compose.yml**
-```bash
+**2. Crea el archivo docker-compose.yml**
+  ```yaml
+version: '3.8'
+
 services:
   db:
     image: postgres:latest
@@ -64,34 +66,43 @@ volumes:
 networks:
   db-network:
     driver: bridge
-```
+  ```
 
-3.**Construir y ejecutar contenedores:**
-```bash
-docker-compose up --build
-```
+  **3. Construir y ejecutar los contenedores**
 
-4.**Detener y eliminar contenedores:**
+  ```bash
+  docker-compose up --build
+  ```
 
-```bash
-docker-compose down
-```
-5. **Limpiar imágenes y volúmenes no utilizados:**
+  **4. Detener y eliminar contenedores**
 
-```bash
-docker system prune
-```
+  ```bash
+  docker-compose down
+  ```
+
+  **5. Limpiar imágenes y volúmenes no utilizados:**
+
+  ```bash 
+  docker system prune
+  ```
 
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Si deseas contribuir, por favor sigue estos pasos:
 
-	1.	Haz un fork del proyecto.
-	2.	Crea una nueva rama (git checkout -b feature/nueva-caracteristica).
-	3.	Realiza tus cambios y haz un commit (git commit -m 'Añadida nueva característica').
-	4.	Haz push a la rama (git push origin feature/nueva-caracteristica).
-	5.	Abre un Pull Request.
+- Haz un fork del proyecto.
+- Crea una nueva rama:
+  `git checkout -b feature/nueva-caracteristica`
+- Realiza tus cambios y haz un commit:
+  `git commit -m 'Añadida nueva característica'`
+- Haz push a la rama:
+  `git push origin feature/nueva-caracteristica`
+- Abre un Pull Request en GitHub.
 
-## Licencia
 
-Puedes copiar este contenido y pegarlo directamente en tu archivo `README.md`. Asegúrate de personalizar los detalles relevantes de tu proyecto.
+  ## Licencia
+Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.
+
+  ### Notas:
+- Asegúrate de reemplazar `tuusuario/tu-repositorio` con la URL real de tu repositorio en GitHub.
+- También puedes personalizar los detalles según las características específicas de tu proyecto. ¡Listo para usar!
